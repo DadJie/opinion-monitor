@@ -753,7 +753,7 @@ function renderRelated(current) {
   `).join('');
 }
 
-// 智能获取相关舆情（增强版 - 基于事件关联度）
+// 智能获取相关舆情（基于事件内容相关性）
 function getRelatedOpinions(current, limit = 5) {
   const scored = allOpinions
     .filter(o => o.id !== current.id)
@@ -761,57 +761,53 @@ function getRelatedOpinions(current, limit = 5) {
       let score = 0;
       let reasons = [];
       
-      // 1. 标题文本相似度（最高 40 分）
+      // 1. 标题文本相似度（最高 50 分）- 核心指标
       const titleSimilarity = calculateTextSimilarity(current.title, opinion.title);
-      if (titleSimilarity > 0.6) {
-        score += Math.round(titleSimilarity * 40);
-        reasons.push(`标题相似 ${Math.round(titleSimilarity * 100)}%`);
+      if (titleSimilarity > 0.5) {
+        score += Math.round(titleSimilarity * 50);
+        if (titleSimilarity > 0.7) {
+          reasons.push(`高度相似 ${Math.round(titleSimilarity * 100)}%`);
+        } else if (titleSimilarity > 0.5) {
+          reasons.push(`相似 ${Math.round(titleSimilarity * 100)}%`);
+        }
       }
       
-      // 2. 实体识别匹配（最高 30 分）
+      // 2. 实体识别匹配（最高 30 分）- 关键指标
       const entityScore = calculateEntityMatch(current, opinion);
-      if (entityScore > 0) {
+      if (entityScore >= 20) {
         score += entityScore;
         reasons.push(`涉及相同实体`);
+      } else if (entityScore > 0) {
+        score += entityScore * 0.5;
       }
       
-      // 3. 关键词重合度（最高 20 分）
+      // 3. 关键词重合度（最高 20 分）- 重要指标
       const keywordScore = calculateKeywordOverlap(current.keywords, opinion.keywords);
-      if (keywordScore > 0) {
+      if (keywordScore >= 10) {
         score += keywordScore;
-        reasons.push(`${keywordScore} 个共同关键词`);
+        reasons.push(`${Math.round(keywords1.filter(k => keywords2.includes(k)).length)} 个共同关键词`);
       }
       
-      // 4. 同分类（10 分）
+      // 4. 同分类（5 分）- 参考指标
       if (opinion.category === current.category) {
-        score += 10;
-        reasons.push(`同属${current.category}类`);
-      }
-      
-      // 5. 同时段（10 分）
-      const timeScore = calculateTimeProximity(current.publishTime, opinion.publishTime);
-      if (timeScore > 0) {
-        score += timeScore;
-        reasons.push(`同时段事件`);
-      }
-      
-      // 6. 同平台（5 分）
-      if (opinion.platform === current.platform) {
         score += 5;
-        reasons.push(`同平台发布`);
       }
+      
+      // 计算相关度百分比（满分 105 分，转换为 0-100%）
+      const similarity = Math.min(Math.round((score / 105) * 100), 100);
       
       return { 
         ...opinion, 
         score,
         relatedReasons: reasons,
-        similarity: Math.round(score / 1.2) // 转换为百分比
+        similarity
       };
     })
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
   
-  return scored.filter(o => o.score > 10); // 只显示相关度>10 分的
+  // 只显示有实质相关性的（score > 15）
+  return scored.filter(o => o.score > 15);
 }
 
 // 计算文本相似度（改进的 Jaccard 算法）
@@ -893,26 +889,9 @@ function calculateKeywordOverlap(keywords1, keywords2) {
   return Math.round((overlap / maxKeywords) * 20);
 }
 
-// 计算时间接近度
-function calculateTimeProximity(time1, time2) {
-  const date1 = new Date(time1);
-  const date2 = new Date(time2);
-  
-  const diffHours = Math.abs(date1 - date2) / (1000 * 60 * 60);
-  
-  // 2 小时内：10 分
-  // 6 小时内：7 分
-  // 12 小时内：4 分
-  // 24 小时内：2 分
-  if (diffHours <= 2) return 10;
-  if (diffHours <= 6) return 7;
-  if (diffHours <= 12) return 4;
-  if (diffHours <= 24) return 2;
-  
-  return 0;
-}
 
-// 生成模拟相关事件（增强版 - 带相关原因）
+
+// 生成模拟相关事件（仅基于内容相关性）
 function generateMockRelated(current) {
   const mocks = [
     {
@@ -922,47 +901,29 @@ function generateMockRelated(current) {
       similarity: 85,
       excerpt: '相关领域专家对该事件进行深度解读，分析事件背景和影响...',
       category: current.category,
-      relatedReasons: ['标题相似 85%', '同属' + current.category + '类', '3 个共同关键词']
+      relatedReasons: ['高度相似 85%', '3 个共同关键词']
     },
     {
-      title: `类似${current.category}事件回顾`,
+      title: `类似事件回顾：${current.keywords[0] || ''}相关案例`,
       source: '新华网',
       time: '1 小时前',
       similarity: 75,
       excerpt: '回顾近年来类似事件，分析发展趋势和规律...',
       category: current.category,
-      relatedReasons: ['同属' + current.category + '类', '涉及相同实体', '同时段事件']
+      relatedReasons: ['涉及相同实体', '相似 75%']
     },
     {
-      title: `网友热议：${current.title}`,
-      source: '微博热搜',
-      time: '2 小时前',
-      similarity: 90,
-      excerpt: '网友对该事件展开热烈讨论，观点呈现多元化...',
-      category: current.category,
-      relatedReasons: ['标题相似 90%', '4 个共同关键词', '同平台发布']
-    },
-    {
-      title: `相关部门已介入调查`,
+      title: `深度分析：${current.title}`,
       source: '央视新闻',
-      time: '3 小时前',
+      time: '2 小时前',
       similarity: 80,
-      excerpt: '针对该事件，相关部门已成立工作组介入调查...',
+      excerpt: '针对该事件的深度分析和背景解读...',
       category: current.category,
-      relatedReasons: ['涉及相同实体', '同属' + current.category + '类', '同时段事件']
-    },
-    {
-      title: `${current.category}行业动态分析`,
-      source: '财联社',
-      time: '4 小时前',
-      similarity: 70,
-      excerpt: '从行业角度分析该事件可能带来的影响和变化...',
-      category: current.category,
-      relatedReasons: ['同属' + current.category + '类', '2 个共同关键词']
+      relatedReasons: ['高度相似 80%', '涉及相同实体']
     }
   ];
   
-  return mocks;
+  return mocks.filter(m => m.similarity >= 70); // 只显示高相关度
 }
 
 // 格式化热度
