@@ -46,6 +46,88 @@ async function loadOpinions() {
   }
 }
 
+// 渲染事件概要
+function renderEventSummary(opinion) {
+  const container = document.getElementById('eventSummary');
+  if (!container) {
+    console.log('eventSummary 容器未找到');
+    return;
+  }
+  
+  try {
+    // 生成事件概要信息
+    const summary = generateEventSummary(opinion);
+    
+    container.innerHTML = `
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 13px; color: var(--neutral-gray); margin-bottom: 8px;">🎯 事件核心</div>
+          <div style="font-size: 15px; color: var(--neutral-dark); line-height: 1.6;">${summary.core}</div>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 13px; color: var(--neutral-gray); margin-bottom: 8px;">👥 关键人物/机构</div>
+          <div style="font-size: 15px; color: var(--neutral-dark); line-height: 1.6;">${summary.entities || '未明确'}</div>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 13px; color: var(--neutral-gray); margin-bottom: 8px;">📍 地点/范围</div>
+          <div style="font-size: 15px; color: var(--neutral-dark); line-height: 1.6;">${summary.location || '未明确'}</div>
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 13px; color: var(--neutral-gray); margin-bottom: 8px;">⏰ 时间线</div>
+          <div style="font-size: 15px; color: var(--neutral-dark); line-height: 1.6;">${summary.timeline}</div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <div style="font-size: 13px; color: var(--neutral-gray); margin-bottom: 8px;">📊 事件影响</div>
+        <div style="font-size: 15px; color: var(--neutral-dark); line-height: 1.8;">
+          ${summary.impact}
+        </div>
+      </div>
+      
+      ${summary.keyPoints && summary.keyPoints.length > 0 ? `
+        <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 13px; color: var(--neutral-gray); margin-bottom: 10px;">💡 关键要点</div>
+          <ul style="padding-left: 20px; line-height: 2; color: var(--neutral-dark);">
+            ${summary.keyPoints.map(point => `<li>${point}</li>`).join('')}
+          </ul>
+        </div>
+      ` : ''}
+    `;
+  } catch (error) {
+    console.error('渲染事件概要失败:', error);
+    container.innerHTML = '<p style="color: var(--neutral-gray);">暂无概要信息</p>';
+  }
+}
+
+// 生成事件概要
+function generateEventSummary(opinion) {
+  const title = opinion.title;
+  const category = opinion.category || '社会';
+  
+  // 提取关键信息
+  const entities = extractEntitiesFromTitle(title);
+  const location = extractLocation(title);
+  const timeline = generateTimelineSummary(opinion);
+  const impact = generateImpactSummary(opinion);
+  const keyPoints = generateSummaryKeyPoints(opinion);
+  
+  // 生成事件核心描述
+  const core = generateCoreDescription(title, category, entities);
+  
+  return {
+    core,
+    entities: entities.join('、') || '未明确',
+    location: location || '未明确',
+    timeline,
+    impact,
+    keyPoints
+  };
+}
+
 // 渲染舆情列表
 function renderOpinionList() {
   const container = document.getElementById('opinionList');
@@ -490,111 +572,127 @@ function extractLocation(title) {
 
 // 生成时间线概要
 function generateTimelineSummary(opinion) {
-  const publishTime = new Date(opinion.publishTime);
-  const now = new Date();
-  const diffHours = Math.floor((now - publishTime) / (1000 * 60 * 60));
-  
-  if (diffHours < 1) return '刚刚发生，正在发展中';
-  if (diffHours < 24) return `${diffHours}小时前发生，持续发酵中`;
-  if (diffHours < 48) return '昨天发生，持续关注中';
-  return '近日发生，后续发展中';
+  try {
+    const publishTime = new Date(opinion.publishTime);
+    const now = new Date();
+    const diffHours = Math.floor((now - publishTime) / (1000 * 60 * 60));
+    
+    if (diffHours < 1) return '刚刚发生，正在发展中';
+    if (diffHours < 24) return `${diffHours}小时前发生，持续发酵中`;
+    if (diffHours < 48) return '昨天发生，持续关注中';
+    return '近日发生，后续发展中';
+  } catch (e) {
+    return '时间信息未知';
+  }
 }
 
 // 生成影响概要
 function generateImpactSummary(opinion) {
-  const heat = opinion.heat;
-  const riskLevel = opinion.riskLevel;
-  const sentiment = opinion.sentiment;
-  
-  let impact = [];
-  
-  // 热度影响
-  if (heat > 10000000) {
-    impact.push('全网高度关注，热度极高');
-  } else if (heat > 5000000) {
-    impact.push('社会关注度较高');
-  } else if (heat > 1000000) {
-    impact.push('一定范围关注');
+  try {
+    const heat = opinion.heat || 0;
+    const riskLevel = opinion.riskLevel || 'low';
+    const sentiment = opinion.sentiment || 'neutral';
+    
+    let impact = [];
+    
+    // 热度影响
+    if (heat > 10000000) {
+      impact.push('全网高度关注，热度极高');
+    } else if (heat > 5000000) {
+      impact.push('社会关注度较高');
+    } else if (heat > 1000000) {
+      impact.push('一定范围关注');
+    }
+    
+    // 风险影响
+    if (riskLevel === 'high') {
+      impact.push('存在较高风险，需重点关注');
+    } else if (riskLevel === 'medium') {
+      impact.push('存在一定风险，需持续关注');
+    }
+    
+    // 情感影响
+    if (sentiment === 'negative') {
+      impact.push('舆论倾向负面，需引导应对');
+    } else if (sentiment === 'positive') {
+      impact.push('舆论倾向正面，整体可控');
+    }
+    
+    return impact.length > 0 ? impact.join('；') : '影响范围有限，整体可控';
+  } catch (e) {
+    return '影响信息未知';
   }
-  
-  // 风险影响
-  if (riskLevel === 'high') {
-    impact.push('存在较高风险，需重点关注');
-  } else if (riskLevel === 'medium') {
-    impact.push('存在一定风险，需持续关注');
-  }
-  
-  // 情感影响
-  if (sentiment === 'negative') {
-    impact.push('舆论倾向负面，需引导应对');
-  } else if (sentiment === 'positive') {
-    impact.push('舆论倾向正面，整体可控');
-  }
-  
-  return impact.length > 0 ? impact.join('；') : '影响范围有限，整体可控';
 }
 
 // 生成关键要点
 function generateSummaryKeyPoints(opinion) {
-  const points = [];
-  const title = opinion.title;
-  const category = opinion.category;
-  
-  // 基于分类生成要点
-  if (category === '社会') {
-    if (title.includes('事故') || title.includes('伤亡')) {
-      points.push('涉及人员伤亡，需关注救援进展');
-      points.push('相关部门已介入调查');
+  try {
+    const points = [];
+    const title = opinion.title || '';
+    const category = opinion.category || '社会';
+    
+    // 基于分类生成要点
+    if (category === '社会') {
+      if (title.includes('事故') || title.includes('伤亡')) {
+        points.push('涉及人员伤亡，需关注救援进展');
+        points.push('相关部门已介入调查');
+      }
+      if (title.includes('天气') || title.includes('暴雨')) {
+        points.push('影响范围较广，需注意防范');
+        points.push('气象部门已发布预警');
+      }
+      if (title.includes('教育') || title.includes('学校')) {
+        points.push('涉及教育民生，社会关注度高');
+        points.push('教育部门正在研究处理');
+      }
     }
-    if (title.includes('天气') || title.includes('暴雨')) {
-      points.push('影响范围较广，需注意防范');
-      points.push('气象部门已发布预警');
+    
+    if (category === '经济') {
+      points.push('涉及经济领域，可能影响市场');
+      points.push('专家正在分析影响');
     }
-    if (title.includes('教育') || title.includes('学校')) {
-      points.push('涉及教育民生，社会关注度高');
-      points.push('教育部门正在研究处理');
+    
+    if (category === '科技') {
+      points.push('科技创新成果，行业关注');
+      points.push('可能带来产业变革');
     }
+    
+    // 默认要点
+    if (points.length === 0) {
+      points.push('事件正在发展中');
+      points.push('建议关注官方通报');
+      points.push('媒体持续跟踪报道');
+    }
+    
+    return points.slice(0, 4);
+  } catch (e) {
+    return ['信息加载中...'];
   }
-  
-  if (category === '经济') {
-    points.push('涉及经济领域，可能影响市场');
-    points.push('专家正在分析影响');
-  }
-  
-  if (category === '科技') {
-    points.push('科技创新成果，行业关注');
-    points.push('可能带来产业变革');
-  }
-  
-  // 默认要点
-  if (points.length === 0) {
-    points.push('事件正在发展中');
-    points.push('建议关注官方通报');
-    points.push('媒体持续跟踪报道');
-  }
-  
-  return points.slice(0, 4);
 }
 
 // 生成核心描述
 function generateCoreDescription(title, category, entities) {
-  // 基于分类生成核心描述
-  const descriptions = {
-    '社会': '社会民生事件',
-    '经济': '经济发展动态',
-    '科技': '科技创新进展',
-    '娱乐': '娱乐行业资讯',
-    '教育': '教育领域动态',
-    '财经': '财经市场资讯',
-    '国际': '国际时事动态',
-    '体育': '体育赛事资讯',
-    '文化': '文化领域动态'
-  };
-  
-  const type = descriptions[category] || '热点事件';
-  const entityStr = entities.length > 0 ? `涉及${entities.join('、')}` : '';
-  
-  return `${type}，${entityStr}${entityStr ? '。' : ''}事件引发社会广泛关注，目前正在进一步发展中。`;
+  try {
+    // 基于分类生成核心描述
+    const descriptions = {
+      '社会': '社会民生事件',
+      '经济': '经济发展动态',
+      '科技': '科技创新进展',
+      '娱乐': '娱乐行业资讯',
+      '教育': '教育领域动态',
+      '财经': '财经市场资讯',
+      '国际': '国际时事动态',
+      '体育': '体育赛事资讯',
+      '文化': '文化领域动态'
+    };
+    
+    const type = descriptions[category] || '热点事件';
+    const entityStr = entities && entities.length > 0 ? `涉及${entities.join('、')}` : '';
+    
+    return `${type}，${entityStr}${entityStr ? '。' : ''}事件引发社会广泛关注，目前正在进一步发展中。`;
+  } catch (e) {
+    return '热点事件，详情待补充';
+  }
 }
 
 // 渲染相关舆情（增强版）
