@@ -1,0 +1,30 @@
+# 舆情眼 - Python 依赖
+
+# Web 框架
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# HTTP 客户端
+aiohttp==3.9.1
+requests==2.31.0
+
+# 数据处理
+pydantic==2.5.0
+python-dateutil==2.8.2
+
+# 中文处理
+jieba==0.42.1
+snownlp==0.12.3
+
+# 数据库（可选）
+sqlalchemy==2.0.23
+
+# 定时任务
+apscheduler==3.10.4
+
+# HTML 解析
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# 网络请求
+urllib3==2.1.0

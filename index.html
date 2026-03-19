@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>舆情眼 - 国内重点舆情实时监控平台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon">👁</div>
+        <span>舆情眼</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="dashboard.html">数据看板</a></li>
+        <li><a href="#">舆情报告</a></li>
+        <li><a href="#">系统设置</a></li>
+      </ul>
+      <div class="header-actions">
+        <button class="refresh-btn" onclick="refreshData()">🔄 刷新</button>
+        <span id="lastUpdate">更新于：--:--</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 统计卡片 -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="totalOpinions">0</div>
+          <div class="stat-label">今日舆情总数</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-value" id="hotOpinions">0</div>
+          <div class="stat-label">热点舆情</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-value" id="positiveCount">0</div>
+          <div class="stat-label">正面舆情</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-value" id="highRiskCount">0</div>
+          <div class="stat-label">高风险预警</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 筛选栏 -->
+  <section class="filter-bar">
+    <div class="container">
+      <div class="filter-container">
+        <div class="filter-group">
+          <button class="filter-btn active" data-category="all">全部</button>
+          <button class="filter-btn" data-category="社会">社会</button>
+          <button class="filter-btn" data-category="经济">经济</button>
+          <button class="filter-btn" data-category="科技">科技</button>
+          <button class="filter-btn" data-category="娱乐">娱乐</button>
+          <button class="filter-btn" data-category="教育">教育</button>
+          <button class="filter-btn" data-category="财经">财经</button>
+          <button class="filter-btn" data-category="文化">文化</button>
+        </div>
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="搜索关键词..." id="searchInput">
+          <button class="search-btn">搜索</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主内容区 -->
+  <main class="container">
+    <div class="main-content">
+      <!-- 舆情列表 -->
+      <div class="opinion-list" id="opinionList">
+        <!-- 舆情卡片将通过 JavaScript 动态加载 -->
+      </div>
+
+      <!-- 侧边栏 -->
+      <aside class="sidebar">
+        <!-- 热词云 -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">🔥 热词云图</h3>
+          <div class="word-cloud" id="wordCloud">
+            <!-- 热词将通过 JavaScript 动态加载 -->
+          </div>
+        </div>
+
+        <!-- 舆情趋势 -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">📈 24 小时舆情趋势</h3>
+          <div class="chart-container" id="trendChart">
+            <!-- 图表将通过 JavaScript 渲染 -->
+          </div>
+        </div>
+
+        <!-- 热点排行榜 -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">🏆 热点排行榜</h3>
+          <div class="ranking-list" id="rankingList">
+            <!-- 排行榜将通过 JavaScript 动态加载 -->
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2026 舆情眼 - 国内重点舆情实时监控平台 | 数据仅供参考</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

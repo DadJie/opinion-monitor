@@ -1,0 +1,23 @@
+{
+  "name": "opinion-monitor",
+  "version": "1.0.0",
+  "description": "国内重点舆情实时监控平台",
+  "homepage": "https://yourusername.github.io/opinion-monitor",
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/opinion-monitor.git"
+  },
+  "keywords": [
+    "舆情监控",
+    "热点分析",
+    "数据可视化"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  }
+}

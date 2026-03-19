@@ -1,0 +1,58 @@
+# 舆情眼 - Docker 配置
+
+## Dockerfile
+
+```dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# 安装依赖
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 复制代码
+COPY . .
+
+# 暴露端口
+EXPOSE 8000 8001
+
+# 启动命令
+CMD ["sh", "-c", "python backend/main.py & python -m http.server 8000 --directory /app"]
+```
+
+## docker-compose.yml
+
+```yaml
+version: '3.8'
+
+services:
+  opinion-monitor:
+    build: .
+    ports:
+      - "8000:8000"  # 前端
+      - "8001:8001"  # 后端 API
+    volumes:
+      - ./data:/app/data
+      - ./backend:/app/backend
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+```
+
+## 使用方式
+
+```bash
+# 构建并启动
+docker-compose up -d
+
+# 查看日志
+docker-compose logs -f
+
+# 停止服务
+docker-compose down
+
+# 访问
+# 前端：http://localhost:8000
+# API: http://localhost:8001
+```

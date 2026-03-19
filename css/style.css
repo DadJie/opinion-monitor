@@ -1,0 +1,789 @@
+/* ========================================
+   舆情眼 - 主样式文件
+   配色：深蓝、中国红、科技蓝
+   ======================================== */
+
+:root {
+  /* 主色调 */
+  --deep-blue: #1a365d;
+  --china-red: #c53030;
+  --tech-blue: #3182ce;
+  --light-blue: #63b3ed;
+  
+  /* 中性色 */
+  --neutral-dark: #2d3748;
+  --neutral-gray: #4a5568;
+  --neutral-light: #a0aec0;
+  --soft-gray: #e2e8f0;
+  --bg-light: #f7fafc;
+  
+  /* 情感色 */
+  --positive: #38a169;
+  --negative: #e53e3e;
+  --neutral: #d69e2e;
+  
+  /* 风险等级 */
+  --risk-high: #c53030;
+  --risk-medium: #dd6b20;
+  --risk-low: #38a169;
+  
+  /* 阴影 */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  
+  /* 过渡 */
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--neutral-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--tech-blue);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================================
+   顶部导航
+   ======================================== */
+.header {
+  background: linear-gradient(135deg, var(--deep-blue) 0%, #2c5282 100%);
+  color: white;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--china-red), var(--tech-blue));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.refresh-btn {
+  background-color: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.refresh-btn:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+/* ========================================
+   统计卡片
+   ======================================== */
+.stats-bar {
+  background: white;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--soft-gray);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-left: 4px solid var(--tech-blue);
+}
+
+.stat-card.red {
+  border-left-color: var(--china-red);
+}
+
+.stat-card.green {
+  border-left-color: var(--positive);
+}
+
+.stat-card.orange {
+  border-left-color: var(--risk-medium);
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--deep-blue);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--neutral-gray);
+}
+
+/* ========================================
+   筛选栏
+   ======================================== */
+.filter-bar {
+  background: white;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--soft-gray);
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  border-color: var(--tech-blue);
+  color: var(--tech-blue);
+}
+
+.filter-btn.active {
+  background: var(--tech-blue);
+  color: white;
+  border-color: var(--tech-blue);
+}
+
+.search-box {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  padding: 8px 16px;
+  border: 1px solid var(--soft-gray);
+  border-radius: 6px;
+  font-size: 14px;
+  width: 250px;
+}
+
+.search-btn {
+  padding: 8px 20px;
+  background: var(--tech-blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.search-btn:hover {
+  background: #2c5282;
+}
+
+/* ========================================
+   主内容区
+   ======================================== */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* 舆情列表 */
+.opinion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.opinion-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  border-left: 4px solid transparent;
+}
+
+.opinion-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.opinion-card.hot {
+  border-left-color: var(--china-red);
+}
+
+.opinion-card.normal {
+  border-left-color: var(--tech-blue);
+}
+
+.opinion-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.opinion-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--neutral-dark);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.opinion-card-badges {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-hot {
+  background: #fed7d7;
+  color: var(--china-red);
+}
+
+.badge-new {
+  background: #c6f6d5;
+  color: var(--positive);
+}
+
+.badge-category {
+  background: #bee3f8;
+  color: var(--tech-blue);
+}
+
+.opinion-card-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: var(--neutral-gray);
+  margin-bottom: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.opinion-card-excerpt {
+  font-size: 14px;
+  color: var(--neutral-gray);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.opinion-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid var(--soft-gray);
+}
+
+.sentiment-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sentiment-positive {
+  background: #c6f6d5;
+  color: var(--positive);
+}
+
+.sentiment-negative {
+  background: #fed7d7;
+  color: var(--negative);
+}
+
+.sentiment-neutral {
+  background: #feebc8;
+  color: var(--neutral);
+}
+
+.risk-level {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.risk-high {
+  color: var(--risk-high);
+}
+
+.risk-medium {
+  color: var(--risk-medium);
+}
+
+.risk-low {
+  color: var(--risk-low);
+}
+
+/* 侧边栏 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--deep-blue);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 热词云 */
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cloud-word {
+  padding: 6px 14px;
+  background: var(--soft-gray);
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cloud-word:hover {
+  background: var(--tech-blue);
+  color: white;
+}
+
+.cloud-word.large {
+  font-size: 16px;
+  font-weight: 600;
+  background: #bee3f8;
+}
+
+.cloud-word.medium {
+  font-size: 14px;
+}
+
+/* 趋势图表容器 */
+.chart-container {
+  height: 200px;
+  position: relative;
+}
+
+/* 舆情排行榜 */
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: var(--bg-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ranking-item:hover {
+  background: var(--soft-gray);
+}
+
+.ranking-num {
+  width: 24px;
+  height: 24px;
+  background: var(--deep-blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ranking-num.top-1 {
+  background: var(--china-red);
+}
+
+.ranking-num.top-2 {
+  background: var(--risk-medium);
+}
+
+.ranking-num.top-3 {
+  background: #d69e2e;
+}
+
+.ranking-title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ranking-hot {
+  font-size: 12px;
+  color: var(--china-red);
+}
+
+/* ========================================
+   舆情详情页
+   ======================================== */
+.detail-header {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--deep-blue);
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.detail-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  font-size: 13px;
+  color: var(--neutral-gray);
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--neutral-dark);
+}
+
+/* 时间线 */
+.timeline-section {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: var(--deep-blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--soft-gray);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--tech-blue);
+  border: 3px solid white;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-dot.key {
+  background: var(--china-red);
+  width: 22px;
+  height: 22px;
+  left: -34px;
+}
+
+.timeline-time {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--neutral-gray);
+  margin-bottom: 8px;
+}
+
+.timeline-content {
+  background: var(--bg-light);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.timeline-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--neutral-dark);
+}
+
+.timeline-desc {
+  font-size: 14px;
+  color: var(--neutral-gray);
+  line-height: 1.7;
+}
+
+/* AI 分析 */
+.ai-analysis {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid var(--light-blue);
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--tech-blue);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.analysis-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.analysis-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--neutral-gray);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.analysis-card-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--deep-blue);
+  line-height: 1.6;
+}
+
+/* ========================================
+   页脚
+   ======================================== */
+.footer {
+  background: var(--deep-blue);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ========================================
+   响应式
+   ======================================== */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header .container {
+    height: auto;
+    padding: 15px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .nav-menu {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-box {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .search-input {
+    flex: 1;
+  }
+  
+  .detail-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+}
