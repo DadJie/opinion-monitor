@@ -104,11 +104,28 @@
   <script src="js/main.js"></script>
   <script>
     // 页面加载时获取 URL 参数并渲染详情
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', async function() {
       const params = new URLSearchParams(window.location.search);
       const opinionId = parseInt(params.get('id'));
-      if (opinionId) {
+      
+      if (!opinionId) {
+        alert('未指定舆情 ID');
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // 先加载数据
+      try {
+        const response = await fetch('data/opinions.json');
+        const data = await response.json();
+        allOpinions = data;
+        
+        // 然后渲染详情
         loadOpinionDetail(opinionId);
+      } catch (error) {
+        console.error('加载数据失败:', error);
+        document.getElementById('detailTitle').textContent = '加载失败';
+        document.getElementById('detailExcerpt').textContent = '无法加载舆情数据，请刷新页面重试';
       }
     });
   </script>
