@@ -86,18 +86,18 @@ async def root():
         ]
     }
 
-@app.get("/api/opinions", response_model=List[OpinionSummary])
+@app.get("/api/opinions")
 async def get_opinions(
     category: Optional[str] = None,
     sentiment: Optional[str] = None,
-    limit: int = 50
+    limit: int = 100
 ):
     """
-    获取舆情列表
+    获取舆情列表（完整版）
     
     - **category**: 分类筛选（可选）
     - **sentiment**: 情感筛选（可选）
-    - **limit**: 返回数量限制（默认 50）
+    - **limit**: 返回数量限制（默认 100）
     """
     data = load_data()
     
@@ -113,19 +113,8 @@ async def get_opinions(
     # 限制数量
     data = data[:limit]
     
-    # 返回简化版
-    return [
-        {
-            "id": o['id'],
-            "title": o['title'],
-            "category": o['category'],
-            "source": o['source'],
-            "heat": o['heat'],
-            "sentiment": o['sentiment'],
-            "isHot": o['isHot']
-        }
-        for o in data
-    ]
+    # 返回完整数据
+    return data
 
 @app.get("/api/opinions/{opinion_id}", response_model=Opinion)
 async def get_opinion_detail(opinion_id: int):

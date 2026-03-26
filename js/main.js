@@ -7,6 +7,12 @@
 let allOpinions = [];
 let filteredOpinions = [];
 
+// 配置
+const API_BASE_URL = 'http://localhost:8001'; // 后端 API 地址
+const AUTO_REFRESH_INTERVAL = 30000; // 自动刷新间隔（毫秒），默认 30 秒
+let autoRefreshTimer = null; // 自动刷新定时器
+let isRefreshing = false; // 是否正在刷新
+
 // 情感映射
 const sentimentMap = {
   'positive': { text: '正面', class: 'sentiment-positive', icon: '😊' },
@@ -30,8 +36,22 @@ const trendMap = {
 
 // 加载舆情数据
 async function loadOpinions() {
+  if (isRefreshing) {
+    console.log('正在刷新中，跳过本次请求');
+    return;
+  }
+  
+  isRefreshing = true;
+  updateRefreshStatus('🔄 刷新中...');
+  
   try {
-    const response = await fetch('data/opinions.json');
+    // 直接从 API 获取完整数据
+    const response = await fetch(`${API_BASE_URL}/api/opinions?limit=100`);
+    if (!response.ok) {
+      throw new Error(`HTTP 错误：${response.status}`);
+    }
+    
+    // 后端返回完整数据（已修改）
     allOpinions = await response.json();
     filteredOpinions = [...allOpinions];
     
@@ -41,8 +61,30 @@ async function loadOpinions() {
     renderRanking();
     renderTrendChart();
     updateLastUpdateTime();
+    updateRefreshStatus('✅ 已更新');
+    
+    console.log(`成功加载 ${allOpinions.length} 条舆情数据`);
   } catch (error) {
     console.error('加载数据失败:', error);
+    updateRefreshStatus('❌ 加载失败');
+    
+    // 如果 API 失败，尝试加载本地缓存数据
+    try {
+      const response = await fetch('data/opinions.json');
+      allOpinions = await response.json();
+      filteredOpinions = [...allOpinions];
+      renderOpinionList();
+      renderStats();
+      renderWordCloud();
+      renderRanking();
+      renderTrendChart();
+      updateLastUpdateTime();
+      console.log('已从本地文件加载数据（降级模式）');
+    } catch (localError) {
+      console.error('加载本地数据也失败:', localError);
+    }
+  } finally {
+    isRefreshing = false;
   }
 }
 
@@ -969,13 +1011,60 @@ function filterByCategory(category) {
 // 更新最后更新时间
 function updateLastUpdateTime() {
   const now = new Date();
-  const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('lastUpdate').textContent = `更新于：${timeStr}`;
+  const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const updateEl = document.getElementById('lastUpdate');
+  if (updateEl) {
+    updateEl.textContent = `更新于：${timeStr}`;
+  }
 }
 
-// 刷新数据
+// 更新刷新状态
+function updateRefreshStatus(status) {
+  const updateEl = document.getElementById('lastUpdate');
+  if (updateEl) {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    updateEl.textContent = `${status} ${timeStr}`;
+    
+    // 3 秒后恢复为正常更新时间
+    if (status !== '✅ 已更新' && status !== '❌ 加载失败') {
+      setTimeout(() => {
+        updateLastUpdateTime();
+      }, 3000);
+    }
+  }
+}
+
+// 刷新数据（手动）
 function refreshData() {
+  if (isRefreshing) {
+    console.log('正在刷新中，请稍后');
+    return;
+  }
+  console.log('手动刷新数据');
   loadOpinions();
+}
+
+// 启动自动刷新
+function startAutoRefresh() {
+  if (autoRefreshTimer) {
+    clearInterval(autoRefreshTimer);
+  }
+  
+  console.log(`启动自动刷新，间隔 ${AUTO_REFRESH_INTERVAL / 1000} 秒`);
+  autoRefreshTimer = setInterval(() => {
+    console.log('自动刷新触发');
+    loadOpinions();
+  }, AUTO_REFRESH_INTERVAL);
+}
+
+// 停止自动刷新
+function stopAutoRefresh() {
+  if (autoRefreshTimer) {
+    clearInterval(autoRefreshTimer);
+    autoRefreshTimer = null;
+    console.log('已停止自动刷新');
+  }
 }
 
 // 初始化筛选器
@@ -1013,4 +1102,14 @@ function initFilters() {
 document.addEventListener('DOMContentLoaded', function() {
   loadOpinions();
   initFilters();
+  startAutoRefresh(); // 启动自动刷新
+  
+  console.log('舆情眼初始化完成');
+  console.log(`API 地址：${API_BASE_URL}`);
+  console.log(`自动刷新间隔：${AUTO_REFRESH_INTERVAL / 1000} 秒`);
+});
+
+// 页面卸载时清理定时器
+window.addEventListener('beforeunload', function() {
+  stopAutoRefresh();
 });
