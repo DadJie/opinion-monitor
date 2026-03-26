@@ -3,3 +3,10 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
 INFO:     127.0.0.1:49260 - "GET /api/opinions/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60648 - "GET /index.html HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60648 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60648 - "GET /index.html HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:47368 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47384 - "GET /api/opinions/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47400 - "GET /detail.html HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:47402 - "GET /js/main.js HTTP/1.1" 404 Not Found
