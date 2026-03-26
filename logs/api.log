@@ -10,3 +10,13 @@ INFO:     127.0.0.1:47368 - "GET / HTTP/1.1" 200 OK
 INFO:     127.0.0.1:47384 - "GET /api/opinions/1 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:47400 - "GET /detail.html HTTP/1.1" 404 Not Found
 INFO:     127.0.0.1:47402 - "GET /js/main.js HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:36414 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40644 - "GET /index.html HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38366 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38374 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38374 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56360 - "GET /api/opinions/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58444 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50904 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50904 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50904 - "GET /api/opinions?limit=100 HTTP/1.1" 200 OK

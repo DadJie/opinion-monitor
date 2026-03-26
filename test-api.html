@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API 测试</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .success { color: green; }
+    .error { color: red; }
+    .info { color: blue; }
+    pre { background: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>🧪 舆情眼 API 连接测试</h1>
+  
+  <div id="status">正在测试...</div>
+  <div id="result"></div>
+  
+  <script>
+    const API_BASE = 'http://localhost:8001';
+    
+    async function test() {
+      const statusEl = document.getElementById('status');
+      const resultEl = document.getElementById('result');
+      
+      try {
+        // 测试 1: API 根路径
+        statusEl.innerHTML = '<span class="info">测试 1: 连接 API 根路径...</span>';
+        const rootRes = await fetch(`${API_BASE}/`);
+        if (!rootRes.ok) throw new Error(`API 根路径返回 ${rootRes.status}`);
+        console.log('✅ API 根路径正常');
+        
+        // 测试 2: 获取舆情详情
+        statusEl.innerHTML += '<br><span class="info">测试 2: 获取舆情详情 (ID=1)...</span>';
+        const detailRes = await fetch(`${API_BASE}/api/opinions/1`);
+        if (!detailRes.ok) throw new Error(`API 返回 ${detailRes.status}`);
+        
+        const data = await detailRes.json();
+        console.log('✅ 获取舆情详情成功:', data.title);
+        
+        // 测试 3: 检查必要字段
+        statusEl.innerHTML += '<br><span class="info">测试 3: 检查数据字段...</span>';
+        const requiredFields = ['id', 'title', 'category', 'source', 'heat', 'sentiment', 'riskLevel', 'trend'];
+        const missingFields = requiredFields.filter(f => !(f in data));
+        
+        if (missingFields.length > 0) {
+          throw new Error(`缺少字段：${missingFields.join(', ')}`);
+        }
+        console.log('✅ 数据字段完整');
+        
+        // 全部通过
+        statusEl.innerHTML = '<span class="success">✅ 所有测试通过！API 连接正常</span>';
+        resultEl.innerHTML = `
+          <h3>获取到的数据：</h3>
+          <p><strong>ID:</strong> ${data.id}</p>
+          <p><strong>标题:</strong> ${data.title}</p>
+          <p><strong>分类:</strong> ${data.category}</p>
+          <p><strong>来源:</strong> ${data.source}</p>
+          <p><strong>热度:</strong> ${data.heat}</p>
+          <p><strong>情感:</strong> ${data.sentiment}</p>
+          <p><strong>风险:</strong> ${data.riskLevel}</p>
+          <p><strong>趋势:</strong> ${data.trend}</p>
+          <h3>原始 JSON：</h3>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+        
+        // 5 秒后跳转到详情页
+        setTimeout(() => {
+          window.location.href = 'detail.html?id=1';
+        }, 5000);
+        
+      } catch (error) {
+        statusEl.innerHTML = `<span class="error">❌ 测试失败：${error.message}</span>`;
+        resultEl.innerHTML = `
+          <h3>错误详情：</h3>
+          <pre>${error.stack}</pre>
+          <h3>可能的原因：</h3>
+          <ul>
+            <li>后端 API 未启动 → 运行：<code>cd backend && python3 -m uvicorn main:app --port 8001</code></li>
+            <li>端口被占用 → 运行：<code>lsof -i :8001</code> 查看占用进程</li>
+            <li>CORS 问题 → 检查浏览器控制台错误</li>
+          </ul>
+        `;
+      }
+    }
+    
+    test();
+  </script>
+</body>
+</html>
