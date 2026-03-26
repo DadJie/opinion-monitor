@@ -212,15 +212,25 @@ function renderOpinionList() {
 
 // 渲染统计卡片
 function renderStats() {
+  // 检查元素是否存在（详情页没有这些元素）
+  const totalEl = document.getElementById('totalOpinions');
+  const hotEl = document.getElementById('hotOpinions');
+  const positiveEl = document.getElementById('positiveCount');
+  const highRiskEl = document.getElementById('highRiskCount');
+  
+  if (!totalEl || !hotEl || !positiveEl || !highRiskEl) {
+    return; // 详情页不渲染统计
+  }
+  
   const total = allOpinions.length;
   const hot = allOpinions.filter(o => o.isHot).length;
   const positive = allOpinions.filter(o => o.sentiment === 'positive').length;
   const highRisk = allOpinions.filter(o => o.riskLevel === 'high').length;
   
-  document.getElementById('totalOpinions').textContent = total;
-  document.getElementById('hotOpinions').textContent = hot;
-  document.getElementById('positiveCount').textContent = positive;
-  document.getElementById('highRiskCount').textContent = highRisk;
+  totalEl.textContent = total;
+  hotEl.textContent = hot;
+  positiveEl.textContent = positive;
+  highRiskEl.textContent = highRisk;
 }
 
 // 渲染热词云
