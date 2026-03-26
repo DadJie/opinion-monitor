@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>舆情详情 - 测试版</title>
+  <link rel="stylesheet" href="css/style.css?v=202603261121">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">👁 舆情眼</div>
+      <button onclick="window.location.href='index.html'">← 返回列表</button>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 30px; max-width: 1200px;">
+    <div id="loading" style="text-align: center; padding: 50px;">
+      <div style="font-size: 48px; margin-bottom: 20px;">⏳</div>
+      <div style="font-size: 18px;">正在加载事件详情...</div>
+      <div id="debug" style="margin-top: 20px; font-size: 14px; color: #666;"></div>
+    </div>
+    
+    <div id="content" style="display: none;">
+      <h1 id="title" style="font-size: 28px; margin-bottom: 20px;"></h1>
+      
+      <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 25px;">
+        <h3 style="font-size: 18px; margin-bottom: 15px;">📄 事件详情</h3>
+        <div id="eventContent" style="line-height: 1.8;"></div>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 20px; border-radius: 10px; border-left: 4px solid #3182ce; margin-bottom: 25px;">
+        <h3 style="font-size: 18px; margin-bottom: 15px;">📋 事件概要</h3>
+        <div id="eventSummary"></div>
+      </div>
+    </div>
+    
+    <div id="error" style="display: none; text-align: center; padding: 50px;">
+      <div style="font-size: 48px; margin-bottom: 20px;">❌</div>
+      <div id="errorMsg" style="font-size: 18px; color: #e53e3e;"></div>
+      <button onclick="window.location.reload()" style="margin-top: 20px; padding: 10px 20px; background: #3182ce; color: white; border: none; border-radius: 6px; cursor: pointer;">🔄 刷新页面</button>
+    </div>
+  </main>
+
+  <script src="js/main.js?v=202603261121"></script>
+  <script>
+    console.log('=== 详情页脚本开始执行 ===');
+    
+    const API_BASE = 'http://localhost:8001';
+    const loadingEl = document.getElementById('loading');
+    const contentEl = document.getElementById('content');
+    const errorEl = document.getElementById('error');
+    const debugEl = document.getElementById('debug');
+    
+    function showDebug(msg) {
+      if (debugEl) debugEl.textContent = msg;
+      console.log(msg);
+    }
+    
+    function showError(msg) {
+      loadingEl.style.display = 'none';
+      contentEl.style.display = 'none';
+      errorEl.style.display = 'block';
+      document.getElementById('errorMsg').textContent = msg;
+    }
+    
+    function showContent() {
+      loadingEl.style.display = 'none';
+      contentEl.style.display = 'block';
+    }
+    
+    async function loadDetail() {
+      try {
+        showDebug('步骤 1: 解析 URL 参数...');
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+        showDebug(`步骤 2: ID=${id}, 准备请求 API...`);
+        
+        if (!id) throw new Error('未指定舆情 ID');
+        
+        showDebug(`步骤 3: 请求 ${API_BASE}/api/opinions/${id}...`);
+        const response = await fetch(`${API_BASE}/api/opinions/${id}`);
+        showDebug(`步骤 4: API 响应状态=${response.status}`);
+        
+        if (!response.ok) throw new Error(`API 返回 ${response.status}`);
+        
+        const opinion = await response.json();
+        showDebug(`步骤 5: 获取成功，标题=${opinion.title}`);
+        
+        // 渲染
+        document.getElementById('title').textContent = opinion.title;
+        
+        // 生成内容
+        const content = `
+          <p><strong>分类:</strong> ${opinion.category}</p>
+          <p><strong>来源:</strong> ${opinion.source}</p>
+          <p><strong>时间:</strong> ${opinion.publishTime}</p>
+          <p><strong>热度:</strong> ${opinion.heat}</p>
+          <p><strong>情感:</strong> ${opinion.sentiment}</p>
+          <p><strong>风险:</strong> ${opinion.riskLevel}</p>
+          <p><strong>趋势:</strong> ${opinion.trend}</p>
+        `;
+        document.getElementById('eventContent').innerHTML = content;
+        document.getElementById('eventSummary').innerHTML = `<p>这是一个测试详情页，成功加载了数据。</p>`;
+        
+        showDebug('步骤 6: 渲染完成!');
+        showContent();
+        
+      } catch (error) {
+        console.error('加载失败:', error);
+        showError(`加载失败：${error.message}`);
+      }
+    }
+    
+    // 页面加载时执行
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadDetail);
+      showDebug('事件监听：DOMContentLoaded');
+    } else {
+      showDebug('直接执行：页面已加载');
+      loadDetail();
+    }
+  </script>
+</body>
+</html>
