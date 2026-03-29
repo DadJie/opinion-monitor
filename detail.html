@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>舆情详情 - 舆情眼</title>
-  <link rel="stylesheet" href="css/style.css?v=202603292200">
+  <link rel="stylesheet" href="css/style.css?v=202603292230">
 </head>
 <body>
   <!-- 顶部导航 -->
@@ -58,6 +58,15 @@
       </div>
 
       <p class="opinion-card-excerpt" id="detailExcerpt" style="font-size: 16px; margin-top: 15px;"></p>
+      
+      <!-- 新闻来源链接 -->
+      <div id="detailSourceLink" style="margin-top: 20px; display: none;">
+        <a href="#" target="_blank" rel="noopener noreferrer" id="newsLink" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 15px; box-shadow: 0 4px 6px rgba(14, 165, 233, 0.2); transition: all 0.2s;">
+          <span>📰</span>
+          <span>查看新闻原文</span>
+          <span style="font-size: 14px;">↗</span>
+        </a>
+      </div>
       
       <!-- 事件内容 -->
       <div class="event-content" style="margin-top: 25px; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
@@ -124,7 +133,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=202603292200"></script>
-  <script src="js/detail-page.js?v=202603292200"></script>
+  <script src="js/main.js?v=202603292230"></script>
+  <script src="js/detail-page.js?v=202603292230"></script>
 </body>
 </html>

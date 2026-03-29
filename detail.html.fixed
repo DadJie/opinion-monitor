@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>舆情详情 - 舆情眼</title>
+  <link rel="stylesheet" href="css/style.css?v=202603292145">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon">👁</div>
+        <span>舆情眼</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="dashboard.html">数据看板</a></li>
+        <li><a href="#">舆情报告</a></li>
+        <li><a href="#">系统设置</a></li>
+      </ul>
+      <div class="header-actions">
+        <button class="refresh-btn" onclick="window.location.href='index.html'">← 返回列表</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="container" style="margin-top: 30px;">
+    <!-- 舆情头部 -->
+    <div class="detail-header">
+      <h1 class="detail-title" id="detailTitle">加载中...</h1>
+      
+      <div class="detail-meta">
+        <span class="badge badge-category" id="detailCategory">分类</span>
+        <span class="badge badge-hot" id="detailSource">来源</span>
+        <span class="badge badge-new" id="detailTime">时间</span>
+      </div>
+
+      <div class="detail-info">
+        <div class="info-item">
+          <span class="info-label">热度指数</span>
+          <span class="info-value" id="detailHeat">--</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">情感倾向</span>
+          <span class="info-value" id="detailSentiment">--</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">风险等级</span>
+          <span class="info-value" id="detailRisk">--</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">发展趋势</span>
+          <span class="info-value" id="detailTrend">--</span>
+        </div>
+      </div>
+
+      <p class="opinion-card-excerpt" id="detailExcerpt" style="font-size: 16px; margin-top: 15px;"></p>
+      
+      <!-- 事件内容 -->
+      <div class="event-content" style="margin-top: 25px; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <h3 style="font-size: 18px; font-weight: 600; color: var(--deep-blue); margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+          📄 事件详情
+        </h3>
+        <div class="content-body" id="eventContent" style="line-height: 1.8; color: var(--neutral-dark); font-size: 15px;">
+          <!-- 事件内容将通过 JavaScript 动态加载 -->
+        </div>
+        <div id="eventContentLoading" style="text-align: center; padding: 30px; color: var(--neutral-gray);">
+          <div style="font-size: 24px; margin-bottom: 10px;">⏳</div>
+          <div>正在加载事件详情...</div>
+        </div>
+      </div>
+      
+      <!-- 事件概要 -->
+      <div class="event-summary" style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 10px; border-left: 4px solid var(--tech-blue);">
+        <h3 style="font-size: 18px; font-weight: 600; color: var(--deep-blue); margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+          📋 事件概要
+        </h3>
+        <div class="summary-content" id="eventSummary">
+          <!-- 动态生成 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 时间线 -->
+    <div class="timeline-section">
+      <h2 class="section-heading">⏱️ 事件时间线</h2>
+      <div class="timeline" id="timelineList">
+        <!-- 时间线将通过 JavaScript 动态加载 -->
+      </div>
+    </div>
+
+    <!-- AI 分析 -->
+    <div class="timeline-section ai-analysis">
+      <div class="ai-badge">🤖 AI 智能分析</div>
+      <h2 class="section-heading">📊 分析研判</h2>
+      
+      <div class="analysis-grid" id="analysisGrid">
+        <!-- AI 分析将通过 JavaScript 动态加载 -->
+      </div>
+
+      <div style="margin-top: 25px;">
+        <h3 class="section-heading" style="font-size: 18px;">💡 关键要点</h3>
+        <ul id="keyPoints" style="padding-left: 20px; line-height: 2;">
+          <!-- 关键要点将通过 JavaScript 动态加载 -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- 相关舆情 -->
+    <div class="timeline-section">
+      <h2 class="section-heading">🔗 相关舆情</h2>
+      <div class="opinion-list" id="relatedList">
+        <!-- 相关舆情将通过 JavaScript 动态加载 -->
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2026 舆情眼 - 国内重点舆情实时监控平台 | 数据仅供参考</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=202603292145"></script>
+  <script>
+    // API 地址（与 main.js 保持一致）
+    const API_BASE_URL = 'http://localhost:8001';
+    
+    // 确保 main.js 中的全局变量可用（如果未定义则定义）
+    if (typeof sentimentMap === 'undefined') {
+      var sentimentMap = {
+        'positive': { text: '正面', class: 'sentiment-positive', icon: '😊' },
+        'negative': { text: '负面', class: 'sentiment-negative', icon: '😟' },
+        'neutral': { text: '中性', class: 'sentiment-neutral', icon: '😐' }
+      };
+    }
+    if (typeof riskMap === 'undefined') {
+      var riskMap = {
+        'high': { text: '高风险', class: 'risk-high' },
+        'medium': { text: '中风险', class: 'risk-medium' },
+        'low': { text: '低风险', class: 'risk-low' }
+      };
+    }
+    if (typeof trendMap === 'undefined') {
+      var trendMap = {
+        'rising': { text: '上升 🔺', color: '#c53030' },
+        'falling': { text: '下降 🔻', color: '#38a169' },
+        'stable': { text: '平稳 ➖', color: '#d69e2e' }
+      };
+    }
+    if (typeof formatHeat === 'undefined') {
+      function formatHeat(heat) {
+        if (heat >= 1000000) {
+          return (heat / 1000000).toFixed(1) + 'M';
+        } else if (heat >= 10000) {
+          return (heat / 10000).toFixed(0) + 'W';
+        }
+        return heat.toString();
+      }
+    }
+    
+    // 页面加载时获取 URL 参数并渲染详情
+    document.addEventListener('DOMContentLoaded', async function() {
+      console.log('详情页开始加载，ID:', window.location.search);
+      
+      const params = new URLSearchParams(window.location.search);
+      const opinionId = parseInt(params.get('id'));
+      
+      console.log('解析出的 Opinion ID:', opinionId);
+      
+      if (!opinionId) {
+        alert('未指定舆情 ID');
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // 先加载数据（优先从 API，失败则使用本地文件）
+      try {
+        console.log('尝试从 API 加载:', `${API_BASE_URL}/api/opinions/${opinionId}`);
+        const response = await fetch(`${API_BASE_URL}/api/opinions/${opinionId}`);
+        console.log('API 响应状态:', response.status);
+        
+        if (response.ok) {
+          const opinion = await response.json();
+          console.log('API 加载成功:', opinion.title);
+          renderDetail(opinion);
+        } else {
+          throw new Error(`API 请求失败：${response.status}`);
+        }
+      } catch (error) {
+        console.warn('API 加载失败，使用本地数据:', error);
+        try {
+          console.log('从本地文件加载...');
+          const response = await fetch('data/opinions.json');
+          const data = await response.json();
+          console.log('本地数据加载成功，总数:', data.length);
+          
+          const opinion = data.find(o => o.id === opinionId);
+          console.log('找到的舆情:', opinion ? opinion.title : '未找到');
+          
+          if (opinion) {
+            renderDetail(opinion);
+          } else {
+            throw new Error(`未找到 ID 为 ${opinionId} 的舆情`);
+          }
+        } catch (localError) {
+          console.error('加载数据失败:', localError);
+          document.getElementById('detailTitle').textContent = '加载失败';
+          document.getElementById('eventContent').innerHTML = `
+            <div style="text-align: center; padding: 40px;">
+              <div style="font-size: 48px; margin-bottom: 20px;">❌</div>
+              <p style="color: var(--neutral-gray); font-size: 16px;">无法加载舆情数据</p>
+              <p style="color: var(--neutral-gray); font-size: 14px; margin-top: 10px;">${localError.message}</p>
+              <button onclick="window.location.reload()" style="margin-top: 20px; padding: 10px 20px; background: var(--tech-blue); color: white; border: none; border-radius: 6px; cursor: pointer;">🔄 刷新页面</button>
+            </div>
+          `;
+          document.getElementById('eventContentLoading').style.display = 'none';
+        }
+      }
+    });
+    
+    // 渲染详情页
+    function renderDetail(opinion) {
+      console.log('开始渲染详情:', opinion.title);
+      
+      // 填充基本信息
+      document.getElementById('detailTitle').textContent = opinion.title;
+      document.getElementById('detailCategory').textContent = opinion.category;
+      document.getElementById('detailSource').textContent = opinion.source;
+      document.getElementById('detailTime').textContent = opinion.publishTime;
+      document.getElementById('detailHeat').textContent = formatHeat(opinion.heat);
+      
+      // 情感倾向
+      document.getElementById('detailSentiment').innerHTML = `
+        <span class="sentiment-tag ${sentimentMap[opinion.sentiment].class}">
+          ${sentimentMap[opinion.sentiment].icon} ${sentimentMap[opinion.sentiment].text}
+        </span>
+      `;
+      
+      // 风险等级
+      document.getElementById('detailRisk').innerHTML = `
+        <span class="risk-level ${riskMap[opinion.riskLevel].class}">
+          ⚠️ ${riskMap[opinion.riskLevel].text}
+        </span>
+      `;
+      
+      // 发展趋势
+      document.getElementById('detailTrend').innerHTML = `
+        <span style="color: ${trendMap[opinion.trend].color}; font-weight: 600;">
+          ${opinion.trend === 'rising' ? '📈' : opinion.trend === 'falling' ? '📉' : '➡️'} 
+          ${trendMap[opinion.trend].text}
+        </span>
+      `;
+      
+      // 摘要
+      const excerptEl = document.getElementById('detailExcerpt');
+      if (opinion.excerpt && opinion.excerpt.trim()) {
+        excerptEl.textContent = opinion.excerpt;
+      } else {
+        excerptEl.style.display = 'none';
+      }
+      
+      // 事件内容（优先使用 content 字段，没有则生成模拟内容）
+      const contentEl = document.getElementById('eventContent');
+      const loadingEl = document.getElementById('eventContentLoading');
+      loadingEl.style.display = 'none';
+      
+      if (opinion.content && opinion.content.trim()) {
+        // 有实际内容
+        console.log('显示实际内容');
+        contentEl.innerHTML = `<div style="line-height: 1.8;">${opinion.content}</div>`;
+      } else {
+        // 生成详细内容
+        console.log('生成详细内容');
+        contentEl.innerHTML = generateDetailedContent(opinion);
+      }
+      
+      // 渲染事件概要
+      console.log('渲染事件概要...');
+      if (typeof renderEventSummary === 'function') {
+        renderEventSummary(opinion);
+      } else {
+        console.error('renderEventSummary 函数未定义');
+      }
+      
+      // 渲染时间线
+      console.log('渲染时间线...');
+      if (typeof renderTimeline === 'function') {
+        renderTimeline(opinion.timeline);
+      } else {
+        console.error('renderTimeline 函数未定义');
+      }
+      
+      // 渲染 AI 分析
+      console.log('渲染 AI 分析...');
+      if (typeof renderAnalysis === 'function') {
+        renderAnalysis(opinion.analysis);
+      } else {
+        console.error('renderAnalysis 函数未定义');
+      }
+      
+      // 渲染相关舆情
+      console.log('渲染相关舆情...');
+      if (typeof renderRelated === 'function') {
+        renderRelated(opinion);
+      } else {
+        console.error('renderRelated 函数未定义');
+      }
+      
+      // 更新页面标题
+      document.title = `${opinion.title} - 舆情详情`;
+      console.log('渲染完成');
+    }
+    
+    // 生成详细的事件内容（用于没有 content 字段的情况）
+    function generateDetailedContent(opinion) {
+      const title = opinion.title;
+      const category = opinion.category || '社会';
+      const source = opinion.source;
+      const publishTime = opinion.publishTime;
+      const heat = opinion.heat;
+      const sentiment = opinion.sentiment;
+      const keywords = opinion.keywords || [];
+      
+      // 生成内容结构
+      const content = `
+        <div style="margin-bottom: 25px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: var(--deep-blue); margin-bottom: 12px; border-left: 3px solid var(--tech-blue); padding-left: 12px;">📍 事件概述</h4>
+          <p style="line-height: 1.8; margin-bottom: 15px;">
+            <strong>${title}</strong> 是一起${category}类事件，由 <strong>${source}</strong> 于 <strong>${publishTime}</strong> 首次报道。
+            该事件迅速引发社会关注，目前热度达到 <strong>${formatHeat(heat)}</strong>，
+            舆论情感倾向为 <strong>${sentimentMap[sentiment].text}</strong> ${sentimentMap[sentiment].icon}。
+          </p>
+        </div>
+        
+        ${keywords && keywords.length > 0 ? `
+        <div style="margin-bottom: 25px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: var(--deep-blue); margin-bottom: 12px; border-left: 3px solid var(--tech-blue); padding-left: 12px;">🏷️ 关键词</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            ${keywords.map(kw => `<span style="display: inline-block; background: #e0f2fe; color: var(--tech-blue); padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 500;">${kw}</span>`).join('')}
+          </div>
+        </div>
+        ` : ''}
+        
+        <div style="margin-bottom: 25px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: var(--deep-blue); margin-bottom: 12px; border-left: 3px solid var(--tech-blue); padding-left: 12px;">📊 舆情态势</h4>
+          <p style="line-height: 1.8; margin-bottom: 10px;">
+            该事件自发布以来，传播速度${opinion.trend === 'rising' ? '<strong>快速上升</strong> 🔺' : opinion.trend === 'falling' ? '<strong>逐渐下降</strong> 🔻' : '<strong>保持平稳</strong> ➖'}。
+            根据风险评估，该事件属于 <strong>${riskMap[opinion.riskLevel].text}</strong> 级别，
+            ${opinion.riskLevel === 'high' ? '需要重点关注和及时应对' : opinion.riskLevel === 'medium' ? '建议持续跟踪监测' : '整体风险可控'}。
+          </p>
+        </div>
+        
+        <div style="margin-bottom: 25px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: var(--deep-blue); margin-bottom: 12px; border-left: 3px solid var(--tech-blue); padding-left: 12px;">💡 关注建议</h4>
+          <ul style="line-height: 2; padding-left: 20px;">
+            <li>持续关注事件发展动态和官方通报</li>
+            <li>注意媒体报道倾向和网民情绪变化</li>
+            <li>警惕不实信息传播和谣言扩散</li>
+            <li>做好舆情应对和引导准备工作</li>
+          </ul>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid var(--neutral-gray);">
+          <p style="font-size: 13px; color: var(--neutral-gray); margin: 0;">
+            ℹ️ 以上内容基于舆情数据自动生成，仅供参考。详细事件内容请以官方发布和权威媒体报道为准。
+          </p>
+        </div>
+      `;
+      
+      return content;
+    }
+  </script>
+</body>
+</html>

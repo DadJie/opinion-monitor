@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试详情页</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .error { color: red; }
+    .success { color: green; }
+    pre { background: #f5f5f5; padding: 10px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>详情页调试测试</h1>
+  <div id="status"></div>
+  <div id="data"></div>
+  
+  <script>
+    const API_BASE_URL = 'http://localhost:8001';
+    const statusEl = document.getElementById('status');
+    const dataEl = document.getElementById('data');
+    
+    async function test() {
+      try {
+        statusEl.innerHTML = '<p>🔄 正在测试 API 连接...</p>';
+        
+        // 测试 API
+        const response = await fetch(`${API_BASE_URL}/api/opinions/1`);
+        statusEl.innerHTML += `<p class="success">✅ API 响应状态：${response.status}</p>`;
+        
+        const opinion = await response.json();
+        statusEl.innerHTML += `<p class="success">✅ 数据解析成功</p>`;
+        statusEl.innerHTML += `<p><strong>标题：</strong>${opinion.title}</p>`;
+        statusEl.innerHTML += `<p><strong>分类：</strong>${opinion.category}</p>`;
+        statusEl.innerHTML += `<p><strong>来源：</strong>${opinion.source}</p>`;
+        statusEl.innerHTML += `<p><strong>热度：</strong>${opinion.heat}</p>`;
+        
+        // 测试渲染
+        dataEl.innerHTML = `
+          <h2>渲染测试</h2>
+          <div id="detailTitle"></div>
+          <div id="detailCategory"></div>
+          <div id="detailSource"></div>
+          <div id="detailHeat"></div>
+        `;
+        
+        document.getElementById('detailTitle').textContent = opinion.title;
+        document.getElementById('detailCategory').textContent = opinion.category;
+        document.getElementById('detailSource').textContent = opinion.source;
+        document.getElementById('detailHeat').textContent = opinion.heat;
+        
+        statusEl.innerHTML += `<p class="success">✅ DOM 渲染成功</p>`;
+        
+      } catch (error) {
+        statusEl.innerHTML += `<p class="error">❌ 错误：${error.message}</p>`;
+        console.error('测试失败:', error);
+      }
+    }
+    
+    // 页面加载后执行测试
+    window.addEventListener('DOMContentLoaded', test);
+  </script>
+</body>
+</html>

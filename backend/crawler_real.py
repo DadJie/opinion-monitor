@@ -140,11 +140,21 @@ class OpinionCrawler:
         results = []
         for item in data[:15]:
             try:
+                title = item.get('Title', '')
+                item_id = item.get('ItemId', '')
+                # 生成 URL，如果 ItemId 为空则使用搜索 URL
+                if item_id:
+                    url = f"https://www.toutiao.com/item/{item_id}/"
+                else:
+                    # 使用搜索 URL 作为备选
+                    import urllib.parse
+                    url = f"https://www.toutiao.com/search/?keyword={urllib.parse.quote(title)}"
+                
                 results.append({
-                    'title': item.get('Title', ''),
+                    'title': title,
                     'source': '今日头条',
                     'heat': int(item.get('HotValue', 0)),
-                    'url': f"https://www.toutiao.com/item/{item.get('ItemId', '')}/",
+                    'url': url,
                     'excerpt': item.get('Summary', '')[:100]
                 })
             except Exception as e:
@@ -225,6 +235,7 @@ class OpinionCrawler:
             'isNew': True,
             'excerpt': raw_data.get('excerpt', title[:50] + '...'),
             'keywords': self.extract_keywords(title),
+            'url': raw_data.get('url', '#'),
             'timeline': [
                 {
                     'time': now.strftime('%H:%M'),

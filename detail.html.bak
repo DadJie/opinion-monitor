@@ -111,23 +111,6 @@ function renderDetail(opinion) {
     excerptEl.style.display = 'none';
   }
   
-  // 新闻来源链接
-  const sourceLinkEl = document.getElementById('detailSourceLink');
-  const newsLinkEl = document.getElementById('newsLink');
-  if (opinion.url && opinion.url !== '#' && opinion.url.trim()) {
-    newsLinkEl.href = opinion.url;
-    // 更新链接文本，显示来源名称
-    const linkText = newsLinkEl.querySelector('span:nth-child(2)');
-    if (linkText) {
-      linkText.textContent = `查看原文：${opinion.source}`;
-    }
-    sourceLinkEl.style.display = 'block';
-    console.log('显示新闻链接:', opinion.url);
-  } else {
-    sourceLinkEl.style.display = 'none';
-    console.log('无新闻链接');
-  }
-  
   // 事件内容
   const contentEl = document.getElementById('eventContent');
   if (opinion.content && opinion.content.trim()) {
@@ -186,7 +169,6 @@ function generateDetailedContent(opinion) {
   const heat = opinion.heat;
   const sentiment = opinion.sentiment;
   const keywords = opinion.keywords || [];
-  const url = opinion.url || '#';
   
   // 生成内容结构
   const content = `
@@ -198,19 +180,6 @@ function generateDetailedContent(opinion) {
         舆论情感倾向为 <strong>${sentimentMap[sentiment].text}</strong> ${sentimentMap[sentiment].icon}。
       </p>
     </div>
-    
-    ${url && url !== '#' ? `
-    <div style="margin-bottom: 25px;">
-      <h4 style="font-size: 16px; font-weight: 600; color: var(--deep-blue); margin-bottom: 12px; border-left: 3px solid var(--tech-blue); padding-left: 12px;">🔗 新闻来源</h4>
-      <div style="padding: 15px; background: #f0f9ff; border-radius: 8px; border: 1px solid #bae6fd;">
-        <a href="${url}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; color: var(--tech-blue); text-decoration: none; font-weight: 500; font-size: 15px;">
-          <span>📰</span>
-          <span>查看原文：${source}</span>
-          <span style="font-size: 12px; opacity: 0.7;">↗</span>
-        </a>
-      </div>
-    </div>
-    ` : ''}
     
     ${keywords && keywords.length > 0 ? `
     <div style="margin-bottom: 25px;">
