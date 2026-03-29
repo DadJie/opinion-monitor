@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>舆情详情 - 舆情眼</title>
-  <link rel="stylesheet" href="css/style.css?v=202603261121">
+  <link rel="stylesheet" href="css/style.css?v=202603292145">
 </head>
 <body>
   <!-- 顶部导航 -->
@@ -125,10 +125,43 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=202603261121"></script>
+  <script src="js/main.js?v=202603292145"></script>
   <script>
     // API 地址（与 main.js 保持一致）
     const API_BASE_URL = 'http://localhost:8001';
+    
+    // 确保 main.js 中的全局变量可用（如果未定义则定义）
+    if (typeof sentimentMap === 'undefined') {
+      var sentimentMap = {
+        'positive': { text: '正面', class: 'sentiment-positive', icon: '😊' },
+        'negative': { text: '负面', class: 'sentiment-negative', icon: '😟' },
+        'neutral': { text: '中性', class: 'sentiment-neutral', icon: '😐' }
+      };
+    }
+    if (typeof riskMap === 'undefined') {
+      var riskMap = {
+        'high': { text: '高风险', class: 'risk-high' },
+        'medium': { text: '中风险', class: 'risk-medium' },
+        'low': { text: '低风险', class: 'risk-low' }
+      };
+    }
+    if (typeof trendMap === 'undefined') {
+      var trendMap = {
+        'rising': { text: '上升 🔺', color: '#c53030' },
+        'falling': { text: '下降 🔻', color: '#38a169' },
+        'stable': { text: '平稳 ➖', color: '#d69e2e' }
+      };
+    }
+    if (typeof formatHeat === 'undefined') {
+      function formatHeat(heat) {
+        if (heat >= 1000000) {
+          return (heat / 1000000).toFixed(1) + 'M';
+        } else if (heat >= 10000) {
+          return (heat / 10000).toFixed(0) + 'W';
+        }
+        return heat.toString();
+      }
+    }
     
     // 页面加载时获取 URL 参数并渲染详情
     document.addEventListener('DOMContentLoaded', async function() {
