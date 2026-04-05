@@ -4,8 +4,8 @@
     "title": "5名美国顶尖科学家离奇失踪或死亡",
     "category": "国际",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 79650873,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 80929630,
     "trend": "rising",
     "sentiment": "negative",
     "riskLevel": "high",
@@ -21,7 +21,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -44,8 +44,8 @@
     "title": "王楚钦首夺世界杯男单冠军",
     "category": "体育",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 72071090,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 73228158,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -61,7 +61,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -84,8 +84,8 @@
     "title": "这锦绣河山 我们替您守护",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 65212619,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 66259577,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -101,7 +101,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -124,8 +124,8 @@
     "title": "王楚钦夺冠后倒地庆祝",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 59006818,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 59954145,
     "trend": "rising",
     "sentiment": "positive",
     "riskLevel": "medium",
@@ -141,7 +141,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -164,8 +164,8 @@
     "title": "无人机吊运猪羊上山祭祖",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 53391577,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 54248753,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -181,7 +181,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -201,51 +201,11 @@
   },
   {
     "id": 6,
-    "title": "伊媒称多名美士兵营救飞行员时身亡",
-    "category": "社会",
-    "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 48310696,
-    "trend": "rising",
-    "sentiment": "negative",
-    "riskLevel": "medium",
-    "isHot": true,
-    "isNew": true,
-    "excerpt": "",
-    "keywords": [
-      "伊媒称多",
-      "名美士兵",
-      "伊媒称多名美"
-    ],
-    "platform": "toutiao",
-    "url": "https://www.toutiao.com/item//",
-    "timeline": [
-      {
-        "time": "18:26",
-        "title": "事件发现",
-        "desc": "今日头条 监测到该热点",
-        "isKey": true
-      }
-    ],
-    "analysis": {
-      "sentiment": "negative",
-      "sentimentScore": 0.65,
-      "riskAssessment": "medium",
-      "trendPrediction": "待观察",
-      "keyPoints": [
-        "事件正在发展中",
-        "需持续关注官方通报",
-        "建议跟踪后续报道"
-      ]
-    }
-  },
-  {
-    "id": 7,
     "title": "张雪澄清“一个子儿都没有”言论",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 43713326,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 49086302,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -261,7 +221,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -280,12 +240,52 @@
     }
   },
   {
-    "id": 8,
-    "title": "王楚钦含泪坦言每一天都可能被淘汰",
+    "id": 7,
+    "title": "伊媒称多名美士兵营救飞行员时身亡",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 39553453,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 44415123,
+    "trend": "rising",
+    "sentiment": "negative",
+    "riskLevel": "medium",
+    "isHot": true,
+    "isNew": true,
+    "excerpt": "",
+    "keywords": [
+      "伊媒称多",
+      "名美士兵",
+      "伊媒称多名美"
+    ],
+    "platform": "toutiao",
+    "url": "https://www.toutiao.com/item//",
+    "timeline": [
+      {
+        "time": "20:19",
+        "title": "事件发现",
+        "desc": "今日头条 监测到该热点",
+        "isKey": true
+      }
+    ],
+    "analysis": {
+      "sentiment": "negative",
+      "sentimentScore": 0.65,
+      "riskAssessment": "medium",
+      "trendPrediction": "待观察",
+      "keyPoints": [
+        "事件正在发展中",
+        "需持续关注官方通报",
+        "建议跟踪后续报道"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "title": "比亚迪海豹06DM-i卖到8万级",
+    "category": "社会",
+    "source": "今日头条",
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 40188465,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -293,15 +293,15 @@
     "isNew": true,
     "excerpt": "",
     "keywords": [
-      "王楚钦含",
-      "泪坦言每",
-      "王楚钦含泪坦"
+      "比亚迪海",
+      "豹06D",
+      "比亚迪海豹0"
     ],
     "platform": "toutiao",
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -321,11 +321,11 @@
   },
   {
     "id": 9,
-    "title": "孩子抑郁家长该如何应对",
+    "title": "王楚钦含泪坦言每一天都可能被淘汰",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 35789444,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 36364027,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -333,15 +333,15 @@
     "isNew": true,
     "excerpt": "",
     "keywords": [
-      "孩子抑郁",
-      "家长该如",
-      "孩子抑郁家长"
+      "王楚钦含",
+      "泪坦言每",
+      "王楚钦含泪坦"
     ],
     "platform": "toutiao",
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -364,8 +364,8 @@
     "title": "女子住酒店发现装饰画后还有道门",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 32383628,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 32903532,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -381,7 +381,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -404,8 +404,8 @@
     "title": "水果越来越甜是打了甜蜜素？谣言",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 29301918,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 29772347,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -421,7 +421,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -444,8 +444,8 @@
     "title": "伊朗公布被击落美军机画面：残骸遍地",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 26513472,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 26939133,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -461,7 +461,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -484,8 +484,8 @@
     "title": "黄晓明就带9岁娃骑行道歉",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 23990382,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 24375536,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -501,7 +501,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -524,8 +524,8 @@
     "title": "创历史！孙颖莎世界杯三连冠",
     "category": "体育",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 21707395,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 22055897,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -541,7 +541,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -564,8 +564,8 @@
     "title": "美军失踪飞行员已获救",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 19641663,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 19957001,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -581,7 +581,7 @@
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -601,11 +601,11 @@
   },
   {
     "id": 16,
-    "title": "中年人变胖的真相来了",
+    "title": "学生兼职被拒付工资你咋看",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 17772512,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 18057841,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -613,15 +613,15 @@
     "isNew": true,
     "excerpt": "",
     "keywords": [
-      "中年人变",
-      "胖的真相",
-      "中年人变胖的"
+      "学生兼职",
+      "被拒付工",
+      "学生兼职被拒"
     ],
     "platform": "toutiao",
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -641,11 +641,11 @@
   },
   {
     "id": 17,
-    "title": "女儿被桌子压倒 爸爸玩手机无动于衷",
-    "category": "科技",
+    "title": "中年人变胖的真相来了",
+    "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 16081234,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 16339410,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -653,15 +653,15 @@
     "isNew": true,
     "excerpt": "",
     "keywords": [
-      "女儿被桌",
-      "子压倒 ",
-      "女儿被桌子压"
+      "中年人变",
+      "胖的真相",
+      "中年人变胖的"
     ],
     "platform": "toutiao",
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -681,11 +681,11 @@
   },
   {
     "id": 18,
-    "title": "一名伊朗籍男子在日本被殴打致死",
+    "title": "伊朗已将以色列电厂列入攻击目标",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 14550902,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 14784510,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -693,15 +693,15 @@
     "isNew": true,
     "excerpt": "",
     "keywords": [
-      "一名伊朗",
-      "籍男子在",
-      "一名伊朗籍男"
+      "伊朗已将",
+      "以色列电",
+      "伊朗已将以色"
     ],
     "platform": "toutiao",
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -721,11 +721,11 @@
   },
   {
     "id": 19,
-    "title": "日本整形医生性侵猥亵21名女性获刑",
+    "title": "小学生祭扫途中被大叔投喂60斤橙子",
     "category": "社会",
     "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 13166200,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 13377578,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -733,15 +733,15 @@
     "isNew": true,
     "excerpt": "",
     "keywords": [
-      "日本整形",
-      "医生性侵",
-      "日本整形医生"
+      "小学生祭",
+      "扫途中被",
+      "小学生祭扫途"
     ],
     "platform": "toutiao",
     "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "今日头条 监测到该热点",
         "isKey": true
@@ -764,8 +764,8 @@
     "title": "一口气讲清楚清明那些事儿",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 12103932,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 12112077,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -781,7 +781,7 @@
     "url": "https://www.douyin.com/hot/2455194",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -801,29 +801,29 @@
   },
   {
     "id": 21,
-    "title": "王楚钦首夺世界杯男单冠军",
-    "category": "体育",
-    "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 12069246,
+    "title": "女子晒婆婆升级当奶奶后三天变化",
+    "category": "社会",
+    "source": "今日头条",
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 12104533,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
     "isHot": true,
     "isNew": true,
-    "excerpt": "王楚钦首夺世界杯男单冠军...",
+    "excerpt": "",
     "keywords": [
-      "王楚钦首",
-      "夺世界杯",
-      "王楚钦首夺世"
+      "女子晒婆",
+      "婆升级当",
+      "女子晒婆婆升"
     ],
-    "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456120",
+    "platform": "toutiao",
+    "url": "https://www.toutiao.com/item//",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
-        "desc": "抖音热榜 监测到该热点",
+        "desc": "今日头条 监测到该热点",
         "isKey": true
       }
     ],
@@ -841,27 +841,27 @@
   },
   {
     "id": 22,
-    "title": "山河有念 烟火勿忘",
-    "category": "社会",
+    "title": "王楚钦首夺世界杯男单冠军",
+    "category": "体育",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 11984762,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 12101507,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
     "isHot": true,
     "isNew": true,
-    "excerpt": "山河有念 烟火勿忘...",
+    "excerpt": "王楚钦首夺世界杯男单冠军...",
     "keywords": [
-      "山河有念",
-      " 烟火勿",
-      "山河有念 烟"
+      "王楚钦首",
+      "夺世界杯",
+      "王楚钦首夺世"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456441",
+    "url": "https://www.douyin.com/hot/2456120",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -881,29 +881,29 @@
   },
   {
     "id": 23,
-    "title": "女子晒婆婆升级当奶奶后三天变化",
+    "title": "山河有念 烟火勿忘",
     "category": "社会",
-    "source": "今日头条",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 11913271,
+    "source": "抖音热榜",
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 11968201,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
     "isHot": true,
     "isNew": true,
-    "excerpt": "",
+    "excerpt": "山河有念 烟火勿忘...",
     "keywords": [
-      "女子晒婆",
-      "婆升级当",
-      "女子晒婆婆升"
+      "山河有念",
+      " 烟火勿",
+      "山河有念 烟"
     ],
-    "platform": "toutiao",
-    "url": "https://www.toutiao.com/item//",
+    "platform": "douyin",
+    "url": "https://www.douyin.com/hot/2456441",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
-        "desc": "今日头条 监测到该热点",
+        "desc": "抖音热榜 监测到该热点",
         "isKey": true
       }
     ],
@@ -924,8 +924,8 @@
     "title": "郭艾伦遭熟人诈骗千万元",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 11804777,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 11855267,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -941,7 +941,7 @@
     "url": "https://www.douyin.com/hot/2456484",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -964,8 +964,8 @@
     "title": "苹果密码泄露在哪查看",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 10297798,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 10497554,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
@@ -981,7 +981,7 @@
     "url": "https://www.douyin.com/hot/2456081",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1001,27 +1001,27 @@
   },
   {
     "id": 26,
-    "title": "孙颖莎世界杯单打3连冠",
-    "category": "体育",
+    "title": "交出你的春日ootd",
+    "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 10274439,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 9124738,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
     "isHot": true,
     "isNew": true,
-    "excerpt": "孙颖莎世界杯单打3连冠...",
+    "excerpt": "交出你的春日ootd...",
     "keywords": [
-      "孙颖莎世",
-      "界杯单打",
-      "孙颖莎世界杯"
+      "交出你的",
+      "春日oo",
+      "交出你的春日"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456364",
+    "url": "https://www.douyin.com/hot/2454694",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1041,27 +1041,27 @@
   },
   {
     "id": 27,
-    "title": "交出你的春日ootd",
-    "category": "社会",
+    "title": "孙颖莎世界杯单打3连冠",
+    "category": "体育",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 9093319,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 9109618,
     "trend": "rising",
     "sentiment": "neutral",
     "riskLevel": "medium",
     "isHot": true,
     "isNew": true,
-    "excerpt": "交出你的春日ootd...",
+    "excerpt": "孙颖莎世界杯单打3连冠...",
     "keywords": [
-      "交出你的",
-      "春日oo",
-      "交出你的春日"
+      "孙颖莎世",
+      "界杯单打",
+      "孙颖莎世界杯"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2454694",
+    "url": "https://www.douyin.com/hot/2456364",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1084,8 +1084,8 @@
     "title": "土耳其大量抛售黄金",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7805429,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7968855,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
@@ -1101,7 +1101,7 @@
     "url": "https://www.douyin.com/hot/2455663",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1121,27 +1121,26 @@
   },
   {
     "id": 29,
-    "title": "26岁网红拳手突然离世",
+    "title": "赖清德满意度下滑",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7764546,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7759874,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "26岁网红拳手突然离世...",
+    "excerpt": "赖清德满意度下滑...",
     "keywords": [
-      "26岁网",
-      "红拳手突",
-      "26岁网红拳"
+      "赖清德满",
+      "赖清德满意度"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456242",
+    "url": "https://www.douyin.com/hot/2455992",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1161,27 +1160,27 @@
   },
   {
     "id": 30,
-    "title": "如果说要我选出代表青春那个画面",
+    "title": "26岁网红拳手突然离世",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7727386,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7757895,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "如果说要我选出代表青春那个画面...",
+    "excerpt": "26岁网红拳手突然离世...",
     "keywords": [
-      "如果说要",
-      "我选出代",
-      "如果说要我选"
+      "26岁网",
+      "红拳手突",
+      "26岁网红拳"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456201",
+    "url": "https://www.douyin.com/hot/2456242",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1201,26 +1200,27 @@
   },
   {
     "id": 31,
-    "title": "浪姐的七年之痒",
-    "category": "社会",
+    "title": "文淇解读电影我许可母女关系",
+    "category": "娱乐",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7721566,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7736456,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "浪姐的七年之痒...",
+    "excerpt": "文淇解读电影我许可母女关系...",
     "keywords": [
-      "浪姐的七",
-      "浪姐的七年之"
+      "文淇解读",
+      "电影我许",
+      "文淇解读电影"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455949",
+    "url": "https://www.douyin.com/hot/2455800",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1240,26 +1240,26 @@
   },
   {
     "id": 32,
-    "title": "武汉草莓音乐节",
+    "title": "浪姐的七年之痒",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7719765,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7731574,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "武汉草莓音乐节...",
+    "excerpt": "浪姐的七年之痒...",
     "keywords": [
-      "武汉草莓",
-      "武汉草莓音乐"
+      "浪姐的七",
+      "浪姐的七年之"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455909",
+    "url": "https://www.douyin.com/hot/2455949",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1279,27 +1279,27 @@
   },
   {
     "id": 33,
-    "title": "周杰伦：来吧女儿殿下们",
+    "title": "如果说要我选出代表青春那个画面",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7713750,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7727985,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "周杰伦：来吧女儿殿下们...",
+    "excerpt": "如果说要我选出代表青春那个画面...",
     "keywords": [
-      "周杰伦：",
-      "来吧女儿",
-      "周杰伦：来吧"
+      "如果说要",
+      "我选出代",
+      "如果说要我选"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455100",
+    "url": "https://www.douyin.com/hot/2456201",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1319,26 +1319,27 @@
   },
   {
     "id": 34,
-    "title": "当年轻人开始拜山",
+    "title": "每当我找不到存在的意义",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7703868,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7726829,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "当年轻人开始拜山...",
+    "excerpt": "每当我找不到存在的意义...",
     "keywords": [
-      "当年轻人",
-      "当年轻人开始"
+      "每当我找",
+      "不到存在",
+      "每当我找不到"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455861",
+    "url": "https://www.douyin.com/hot/2455345",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1358,27 +1359,27 @@
   },
   {
     "id": 35,
-    "title": "和曾沛慈一起想着一个人",
+    "title": "周杰伦：来吧女儿殿下们",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7702307,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7724233,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "和曾沛慈一起想着一个人...",
+    "excerpt": "周杰伦：来吧女儿殿下们...",
     "keywords": [
-      "和曾沛慈",
-      "一起想着",
-      "和曾沛慈一起"
+      "周杰伦：",
+      "来吧女儿",
+      "周杰伦：来吧"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455724",
+    "url": "https://www.douyin.com/hot/2455100",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1398,26 +1399,27 @@
   },
   {
     "id": 36,
-    "title": "我爱你手势舞",
+    "title": "声乐老师解析曾沛慈初舞台",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7700205,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7703019,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "我爱你手势舞...",
+    "excerpt": "声乐老师解析曾沛慈初舞台...",
     "keywords": [
-      "我爱你手",
-      "我爱你手势舞"
+      "声乐老师",
+      "解析曾沛",
+      "声乐老师解析"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456142",
+    "url": "https://www.douyin.com/hot/2455987",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1437,27 +1439,26 @@
   },
   {
     "id": 37,
-    "title": "SEVENTEEN全员续约",
+    "title": "我爱你手势舞",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7699942,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7696298,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "SEVENTEEN全员续约...",
+    "excerpt": "我爱你手势舞...",
     "keywords": [
-      "SEVE",
-      "NTEE",
-      "SEVENT"
+      "我爱你手",
+      "我爱你手势舞"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2456530",
+    "url": "https://www.douyin.com/hot/2456142",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1477,27 +1478,27 @@
   },
   {
     "id": 38,
-    "title": "当我用彩色故障风打开春天",
+    "title": "SEVENTEEN全员续约",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7698722,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7693334,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "当我用彩色故障风打开春天...",
+    "excerpt": "SEVENTEEN全员续约...",
     "keywords": [
-      "当我用彩",
-      "色故障风",
-      "当我用彩色故"
+      "SEVE",
+      "NTEE",
+      "SEVENT"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455990",
+    "url": "https://www.douyin.com/hot/2456530",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1517,27 +1518,27 @@
   },
   {
     "id": 39,
-    "title": "第一批吃上佛山鸡煲的人来了",
+    "title": "终于用上祝绪丹这条语录了",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7697849,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7691925,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "第一批吃上佛山鸡煲的人来了...",
+    "excerpt": "终于用上祝绪丹这条语录了...",
     "keywords": [
-      "第一批吃",
-      "上佛山鸡",
-      "第一批吃上佛"
+      "终于用上",
+      "祝绪丹这",
+      "终于用上祝绪"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455480",
+    "url": "https://www.douyin.com/hot/2456310",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1557,27 +1558,27 @@
   },
   {
     "id": 40,
-    "title": "海关截获18厘米长活体帝王蝎",
+    "title": "当我用彩色故障风打开春天",
     "category": "社会",
     "source": "抖音热榜",
-    "publishTime": "2026-04-05 18:26:13",
-    "heat": 7689176,
+    "publishTime": "2026-04-05 20:19:56",
+    "heat": 7689961,
     "trend": "stable",
     "sentiment": "neutral",
     "riskLevel": "low",
     "isHot": true,
     "isNew": true,
-    "excerpt": "海关截获18厘米长活体帝王蝎...",
+    "excerpt": "当我用彩色故障风打开春天...",
     "keywords": [
-      "海关截获",
-      "18厘米",
-      "海关截获18"
+      "当我用彩",
+      "色故障风",
+      "当我用彩色故"
     ],
     "platform": "douyin",
-    "url": "https://www.douyin.com/hot/2455811",
+    "url": "https://www.douyin.com/hot/2455990",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "抖音热榜 监测到该热点",
         "isKey": true
@@ -1600,7 +1601,7 @@
     "title": "非穷尽列举",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 90000,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1616,7 +1617,7 @@
     "url": "https://movie.douban.com/subject/37293378/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1639,7 +1640,7 @@
     "title": "我，许可",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 80000,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1654,7 +1655,7 @@
     "url": "https://movie.douban.com/subject/37332784/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1677,7 +1678,7 @@
     "title": "挽救计划",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 80000,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1692,7 +1693,7 @@
     "url": "https://movie.douban.com/subject/35010610/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1715,7 +1716,7 @@
     "title": "蜂蜜的针",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 70000,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1730,7 +1731,7 @@
     "url": "https://movie.douban.com/subject/26022233/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1753,7 +1754,7 @@
     "title": "河狸变身计划",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 70000,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1769,7 +1770,7 @@
     "url": "https://movie.douban.com/subject/36999793/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1792,7 +1793,7 @@
     "title": "呼啸山庄",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 60000,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1807,7 +1808,7 @@
     "url": "https://movie.douban.com/subject/36963690/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1830,7 +1831,7 @@
     "title": "天才游戏",
     "category": "游戏",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 0,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1845,7 +1846,7 @@
     "url": "https://movie.douban.com/subject/35159709/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1868,7 +1869,7 @@
     "title": "我的妈耶",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 0,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1883,7 +1884,7 @@
     "url": "https://movie.douban.com/subject/36217763/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1906,7 +1907,7 @@
     "title": "阳光女子合唱团",
     "category": "社会",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 0,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1922,7 +1923,7 @@
     "url": "https://movie.douban.com/subject/37193250/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
@@ -1945,7 +1946,7 @@
     "title": "超级马力欧银河大电影",
     "category": "娱乐",
     "source": "豆瓣电影",
-    "publishTime": "2026-04-05 18:26:13",
+    "publishTime": "2026-04-05 20:19:56",
     "heat": 0,
     "trend": "stable",
     "sentiment": "neutral",
@@ -1962,7 +1963,7 @@
     "url": "https://movie.douban.com/subject/36806351/",
     "timeline": [
       {
-        "time": "18:26",
+        "time": "20:19",
         "title": "事件发现",
         "desc": "豆瓣电影 监测到该热点",
         "isKey": true
